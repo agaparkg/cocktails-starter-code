@@ -4,6 +4,42 @@ const main = document.querySelector('.main-content');
 const search = document.querySelector('#search');
 const searchBtn = document.querySelector('#search-btn');
 const ulList = document.querySelector('.list');
+const clearBtn = document.querySelector('.clear');
+const radioYes = document.querySelector('#yes');
+const radioNo = document.querySelector('#no');
+
+radioYes.addEventListener('click', function (e) {
+  radioNo.checked = false;
+  searchBtn.style.display = 'inline-block';
+
+  searchBtn.addEventListener('click', handleSearchBtnClick);
+  search.removeEventListener('input', handleSearchInput);
+});
+
+radioNo.addEventListener('click', function (e) {
+  radioYes.checked = false;
+  searchBtn.style.display = 'none';
+
+  search.addEventListener('input', handleSearchInput);
+  searchBtn.removeEventListener('click', handleSearchBtnClick);
+});
+
+function handleSearchInput(event) {
+  const name = event.target.value;
+  const filteredData = cocktailsData.filter((item) => {
+    return item.strDrink.toLowerCase().includes(name);
+  });
+  renderData(filteredData);
+}
+
+function handleSearchBtnClick() {
+  const name = search.value;
+  const filteredData = cocktailsData.filter((item) => {
+    return item.strDrink.toLowerCase().includes(name);
+  });
+  renderData(filteredData);
+}
+
 // ----------------#-------------------
 // ['Cocktail', 'Shot', 'Ordinary Drink', 'Coffee / Tea', 'Other/Unknown'];
 
@@ -63,6 +99,11 @@ createLinks(links);
 // ----------------#-------------------
 let cocktailsData = cocktails;
 
+clearBtn.addEventListener('click', function () {
+  search.value = '';
+  renderData(cocktailsData);
+});
+
 function renderData(cocktails) {
   main.innerHTML = '';
   for (let item of cocktails) {
@@ -91,19 +132,3 @@ function createCocktails(item) {
 
   main.innerHTML += el;
 }
-
-searchBtn.addEventListener('click', function () {
-  const name = search.value;
-  const filteredData = cocktailsData.filter((item) => {
-    return item.strDrink.toLowerCase().includes(name);
-  });
-  renderData(filteredData);
-});
-
-// search.addEventListener('input', function (event) {
-//   const name = event.target.value;
-//   const filteredData = cocktailsData.filter((item) => {
-//     return item.strDrink.toLowerCase().includes(name);
-//   });
-//   renderData(filteredData);
-// });
