@@ -18,6 +18,32 @@
   border: 1px solid rgb(219, 215, 215);
 }
 
+#search-btn {
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid rgb(219, 215, 215);
+}
+
+.list {
+  list-style-type: none;
+  padding: 0 0 20px 0;
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(223, 221, 221);
+}
+
+.list-item {
+  flex: 1;
+  border: 1px solid rgb(223, 221, 221);
+  padding: 10px;
+}
+
 .main-content {
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +67,29 @@
   margin: 0 auto;
 }
 
-/* .alcohol-type {
+.cocktail-item:hover {
+  color: rgb(71, 149, 223);
+}
+
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.category-type {
+  font-size: 12px;
+  font-weight: 740;
+  color: black;
+  padding: 8px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  border-radius: 5px;
+  top: 5px;
+}
+
+.alcohol-type {
   font-size: 12px;
   position: absolute;
   right: 30px;
@@ -49,8 +97,8 @@
 }
 
 .cocktail-name {
-  text-align: center;
+  text-align: left;
   padding-left: 10%;
   font-size: 20px;
   position: relative;
-} */
+}

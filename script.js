@@ -3,7 +3,64 @@ import { cocktails } from './data.js';
 const main = document.querySelector('.main-content');
 const search = document.querySelector('#search');
 const searchBtn = document.querySelector('#search-btn');
+const ulList = document.querySelector('.list');
+// ----------------#-------------------
+// ['Cocktail', 'Shot', 'Ordinary Drink', 'Coffee / Tea', 'Other/Unknown'];
 
+// Option 1
+// console.log(ulList.children);
+// const liChildren = ulList.children;
+
+// for (let li of liChildren) {
+//   li.addEventListener('click', function () {
+//     // console.log(li.id);
+//     if (li.id === 'All') {
+//       renderData(cocktailsData);
+//     } else {
+//       const filteredCategoryData = cocktailsData.filter((item) => {
+//         return item.strCategory === li.id;
+//       });
+//       renderData(filteredCategoryData);
+//     }
+//   });
+// }
+
+// ----------------#-------------------
+// Option 2
+const links = [
+  'All',
+  'Cocktail',
+  'Shot',
+  'Ordinary Drink',
+  'Coffee / Tea',
+  'Other/Unknown',
+];
+
+function createLinks(links) {
+  for (let link of links) {
+    const liEl = document.createElement('li');
+    liEl.className = 'list-item';
+    liEl.innerText = link;
+    liEl.setAttribute('id', link);
+
+    liEl.addEventListener('click', function (e) {
+      const id = e.target.id;
+      if (id === 'All') {
+        renderData(cocktailsData);
+      } else {
+        const filteredCategoryData = cocktailsData.filter((item) => {
+          return item.strCategory === id;
+        });
+        renderData(filteredCategoryData);
+      }
+    });
+
+    ulList.appendChild(liEl);
+  }
+}
+
+createLinks(links);
+// ----------------#-------------------
 let cocktailsData = cocktails;
 
 function renderData(cocktails) {
@@ -17,7 +74,7 @@ renderData(cocktailsData);
 
 function createCocktails(item) {
   const el = `
-    <div class="cocktail-item">
+    <div id='${item.idDrink}' class="cocktail-item">
       <div class="img-wrapper">
         <img
           src="${item.strDrinkThumb}"
