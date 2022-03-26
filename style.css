@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  border: 1px solid rgb(219, 215, 215);
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#search {
+  width: 50%;
+  height: 40px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid rgb(219, 215, 215);
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cocktail-item {
+  width: 200px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(223, 221, 221);
+  margin: 10px;
+  cursor: pointer;
+}
+
+.cocktail-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* .alcohol-type {
+  font-size: 12px;
+  position: absolute;
+  right: 30px;
+  top: 5px;
+}
+
+.cocktail-name {
+  text-align: center;
+  padding-left: 10%;
+  font-size: 20px;
+  position: relative;
+} */
