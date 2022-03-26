@@ -10,8 +10,38 @@
   text-align: center;
 }
 
+.search-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.search-option p {
+  flex: 1;
+}
+
+.search-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.clear {
+  position: absolute;
+  top: 6px;
+  right: 2px;
+  cursor: pointer;
+  padding: 6px 11px;
+}
+
+.clear:hover {
+  background-color: rgb(243, 237, 237);
+  border-radius: 50%;
+}
+
 #search {
-  width: 50%;
+  width: 100%;
   height: 40px;
   padding: 10px;
   font-size: 18px;
