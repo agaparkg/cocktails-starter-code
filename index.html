@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cocktails Project</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
       <header>
         <h1>Cocktail Project</h1>
-        <input id="search" type="text" placeholder="Search a cocktail.." />
+        <div class="search-option">
+          <p>Use search button?</p>
+          <input type="radio" name="yes" id="yes" checked />
+          <label for="yes">Yes</label><br />
+          <input type="radio" name="no" id="no" />
+          <label for="no">No</label><br />
+        </div>
+        <div class="search-wrapper">
+          <input id="search" type="text" placeholder="Search a cocktail.." />
+          <i class="fa fa-xmark clear"></i>
+        </div>
         <button id="search-btn">Search</button>
       </header>
       <div class="wrapper">
